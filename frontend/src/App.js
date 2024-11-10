@@ -1,57 +1,10 @@
 import React, { useState, useEffect} from 'react';
 import './App.css';
 
-function resizeBase64Image(base64String, maxWidth = 30, maxHeight = 30) {
-  const base64Data = base64String;
-
-  // Create an Image object
-  const img = new Image();
-  img.src = `data:image/png;base64,${base64Data}`;
-
-  return new Promise((resolve, reject) => {
-    img.onload = () => {
-      // Calculate aspect ratio
-      let width = img.width;
-      let height = img.height;
-
-      // Maintain aspect ratio
-      if (width > height) {
-        height *= maxWidth / width;
-        width = maxWidth;
-      } else {
-        width *= maxHeight / height;
-        height = maxHeight;
-      }
-
-      // Create canvas
-      const canvas = document.createElement('canvas');
-      canvas.width = width;
-      canvas.height = height;
-
-      // Draw image on canvas
-      const ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0, width, height);
-
-      // Convert canvas to base64 string
-      resolve(canvas.toDataURL());
-    };
-    img.onerror = reject;
-  });
-}
-
 const App = () => {
 
   const BACKEND_URL = 'http://0.0.0.0:80';
   const [session_id, setSessionId] = useState('123456789');
-
-  const handleImageResize = async (imageBase64) => {
-    try {
-      const resizedImage = await resizeBase64Image(imageBase64);
-      return resizedImage;
-    } catch (error) {
-      console.error('Error resizing image:', error);
-    }
-  };
 
   const [searchResults, setSearchResults] = useState([])
 
@@ -69,19 +22,11 @@ const App = () => {
         }
         const searchData = await response.json();
 
-        const resizedCashbackLogos = await Promise.all(
-          searchData.map(async (result) => await handleImageResize(result.image))
-        );
-
-        const resizedBankLogos = await Promise.all(
-          searchData.map(async (result) => await handleImageResize(result.bank_image))
-        );
-
         setSearchResults(searchData.map((result, index) => ({
           header: result.header,
           description: result.description,
-          cashback_logo: resizedCashbackLogos[index],
-          bank_logo: resizedBankLogos[index]
+          cashback_logo: `data:image/png;base64,${result.image}`,
+          bank_logo: `data:image/png;base64,${result.bank_image}`
         })));
       } catch (error) {
         console.error('Error fetching or resizing images:', error);
