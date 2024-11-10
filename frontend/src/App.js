@@ -3,6 +3,7 @@ import './App.css';
 
 const App = () => {
 
+  // Maybe you'll need to change it to public IP
   const BACKEND_URL = 'http://0.0.0.0:80';
   const [session_id, setSessionId] = useState('123456789');
 
