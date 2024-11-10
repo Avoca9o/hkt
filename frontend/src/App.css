@@ -42,8 +42,8 @@
   flex: 20%;
   height: 500px;
 
-  padding-top: 2%;
-  padding-bottom: 2%;
+  padding-top: 0%;
+  padding-bottom: 0%;
 
   display: flex;
   flex-flow: column;
