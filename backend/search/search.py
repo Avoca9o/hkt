@@ -101,8 +101,8 @@ def mock_search():
 
     result = [
         {
-            'header': '10% на всё',
-            'description': 'Кешбэк для всех новых пользователей до 32 октября',
+            'header': '5% на супермаркеты зарплатным клиентам',
+            'description': 'Кешбэк для всех новых пользователей до 23 октября',
             'category': 'Супермаркеты',
             'image': base64_ashan_image,
             'bank_image': base64_tbank_image,
@@ -125,16 +125,16 @@ def mock_search():
             'bic': ALPHA_BIK
         },
         {
-            'header': 'Кешбэк 500 рублей на пиджаки',
-            'description': 'Кешбэк 500 рублей на пиджаки — это отличная возможность обновить свой гардероб! Пиджаки могут быть универсальным элементом одежды, подходящим как для деловых встреч, так и для повседневных выходов',
+            'header': 'Кешбэк 5000 рублей на покупку костюмов для вкладчиков',
+            'description': 'Кешбэк 5000 рублей на пиджаки — это отличная возможность обновить свой гардероб! Кешбэк доступен всем клиентам ВТБ, у кого открыт вклад в размере от 50 тысяч рублей',
             'category': 'Одежда',
             'image': base64_pidzhak_image,
             'bank_image': base64_vtb_image,
             'bic': VTB_BIK
         },
         {
-            'header': 'Кешбэк 5% на новый iPhone',
-            'description': 'Кешбэк 5% на новый iPhone — это неплохая возможность сэкономить при покупке одного из самых популярных смартфонов на рынке',
+            'header': 'Кешбэк 5% на новый iphone',
+            'description': 'Кешбэк 5% на новый iphone — это неплохая возможность сэкономить при покупке одного из самых популярных смартфонов на рынке',
             'category': 'Техника',
             'image': base64_iphone_image,
             'bank_image': base64_sber_image,
@@ -163,6 +163,14 @@ def mock_search():
             'image': base64_farsh_image,
             'bank_image': base64_sber_image,
             'bic': SBER_BIK
+        },
+        {
+            'header': 'Кешбэк до 3000 на iphone',
+            'description': 'Кешбэк 5% на новый iphone, но до 3000 рублей только клиентам тинькофф банка в честь дня рождения',
+            'category': 'Техника',
+            'image': base64_iphone_image,
+            'bank_image': base64_tbank_image,
+            'bic': TBANK_BIK
         },
         {
             'header': 'Кешбэк 15% на овсянку',
@@ -195,6 +203,14 @@ def mock_search():
             'image': base64_lenta_image,
             'bank_image': base64_alpha_image,
             'bic': ALPHA_BIK
+        },
+        {
+            'header': 'Кешбэк 2% на iphone в магазинах МВидео',
+            'description': 'ВТБ совместно с МВидео запускают акцию в виде двухпроцентного кешбэка на продукцию смартфонов iphone для всех пользователей. Лимит покупок ограничен, условия уточняйте на сайте акции',
+            'category': 'Техника',
+            'image': base64_iphone_image,
+            'bank_image': base64_vtb_image,
+            'bic': VTB_BIK
         },
         {
             'header': 'Кешбэк 5% на красную помаду',

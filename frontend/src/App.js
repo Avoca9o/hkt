@@ -123,12 +123,12 @@ const App = () => {
       {/* Search Bar */}
       <div className="search-bar" >
         <button onClick={handleSearch}>
-          Search
+          Поиск
         </button>
         <span>
           <input
             type="text"
-            placeholder="Search cashbacks..."
+            placeholder="Найдите кешбэк..."
             onChange={(e) => {setSearchTerm(e.target.value);}}
             value={searchTerm}
             onKeyDown={(e) => {
